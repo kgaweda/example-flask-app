@@ -1,13 +1,10 @@
-from flask import Flask,jsonify
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET'])
-def helloApi():
-    data = {
-        "name": "Hello world"
-    }
-    return jsonify(data)
+@app.route("/")
+def home():
+    return "Hello, Dokku!"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
